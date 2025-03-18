@@ -10,7 +10,7 @@ class Solution:
         queue.append(root)
         queue.append(root)
 
-        while len(queue):
+        while len(queue): #2
             left = queue[0]
             queue.pop(0)
             right = queue[0]
