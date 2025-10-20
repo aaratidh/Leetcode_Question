@@ -13,6 +13,8 @@ cte2 as (
    AND d.order_date  = c.first_ord
    AND d.order_date  = d.customer_pref_delivery_date
 )
-
+-- group function lai where condition halna na paeune 
+-- Use having iwth aggregate function 
+-- select use count(*)
 select Round( 100 * count(*)/(select count(*) from cte1) ,2) as immediate_percentage 
 from cte2
