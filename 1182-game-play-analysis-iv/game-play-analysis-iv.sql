@@ -4,7 +4,6 @@ select  player_id,min( event_date) as firstlog
 from Activity 
 group by (player_id)
 
-
 )
 
 Select  Round(count(*)/(select count(distinct player_id) from Activity ),2) as  fraction  
