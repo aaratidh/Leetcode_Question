@@ -14,5 +14,5 @@ union
 
 select  product_id , 10 as price 
 from products 
-where  product_id not in (  select product_id from t1)
+where  product_id not in (select product_id from t1)
 order by product_id
