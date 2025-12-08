@@ -1,21 +1,15 @@
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        write_idx = 0  # Pointer for where the next non-zero element should be written
-        
-        # 1. Iterate through the array and place all non-zero elements at the beginning
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                # Place the non-zero element at the 'write' position
+        write_idx = 0 
+        for i , val in enumerate(nums):
+            if nums[i] != 0 :
                 nums[write_idx] = nums[i]
-                write_idx += 1
-                
-        # 2. Fill the rest of the array (from write_idx onwards) with zeroes
-        for i in range(write_idx, len(nums)):
-            nums[i] = 0
-            
-        # No return statement is needed for in-place modification
+                write_idx = write_idx + 1
+        for i in range(write_idx , len(nums)):
+            nums[i] = 0 
 
 
+        
 
 
 
