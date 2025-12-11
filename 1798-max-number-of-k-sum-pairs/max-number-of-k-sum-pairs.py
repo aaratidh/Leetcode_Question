@@ -1,25 +1,43 @@
 class Solution:
-    def maxOperations(self, nums: List[int], k: int) -> int:
+    def maxOperations(self, nums, k) -> int:
         nums.sort()
-        i, j = 0, len(nums) - 1
-        ops = 0
-    
-        while i < j:
+        ops = 0 
+        i , j  = 0 , len(nums)-1
+        while i < j: 
             s = nums[i] + nums[j]
             if s == k:
-                ops += 1
-                i += 1
-                j -= 1
-            elif s < k:
-                i += 1
-            else:  # s > k
-                j -= 1
-    
-        return ops
+                ops = ops + 1
+                i = i + 1
+                j = j -1
+            elif s >  k :
+                j = j - 1
+            else: 
+                i = i + 1
+        return ops  
 
 
-# [3,1,3,4,3]
-#  i i    j-1 j
+
+    #     def maxOperations(nums, k):
+    # nums.sort()
+    # i, j = 0, len(nums) - 1
+    # ops = 0
+ 
+    # while i < j:
+    #     s = nums[i] + nums[j]
+    #     if s == k:
+    #         ops += 1
+    #         i += 1
+    #         j -= 1
+    #     elif s < k:
+    #         i += 1
+    #     else:  # s > k
+    #         j -= 1
+ 
+    # return ops
+
+
+
+      
 
 
 
