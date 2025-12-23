@@ -1,0 +1,17 @@
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        pairs = 0
+        
+        # Count each row
+        rows = defaultdict(int)
+        for row in grid:
+            rows[tuple(row)] += 1
+        
+        # Compare each column with rows
+        for col in range(n):
+            column = tuple(grid[r][col] for r in range(n))
+            if column in rows:
+                pairs += rows[column]
+        
+        return pairs
