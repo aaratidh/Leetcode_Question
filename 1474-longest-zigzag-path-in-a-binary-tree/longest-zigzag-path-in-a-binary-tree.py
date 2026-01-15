@@ -10,9 +10,7 @@ class Solution:
         def dfs(r, left, curr):
             if r is None:
                 return
-
             self.path = max(self.path, curr)
-
             if left:
                 dfs(r.right, False, curr + 1)
                 dfs(r.left, True, 1)
