@@ -6,20 +6,18 @@
 #         self.right = right
 class Solution:
     def maxLevelSum(self, root: Optional[TreeNode]) -> int:
-        if not root:
+        if not root: 
             return 0
-
-        maxsum = float('-inf')
+        maxsum = float('-inf') 
         minlevel = 1
         level = 1
-
-        q = deque([root])
-
-        while q:
-            qlen = len(q)
-            sum1 = 0
-
-            for _ in range(qlen):
+        q= deque()
+        q.append(root)
+        while q: 
+            qlen = len(q) 
+            sum1 = 0 
+            
+            for i in range(qlen):
                 node = q.popleft()
                 sum1 += node.val
                 if node.left:
@@ -30,8 +28,12 @@ class Solution:
             if sum1 > maxsum:
                 maxsum = sum1
                 minlevel = level
-
-            level += 1   
-
+            level  = level + 1
         return minlevel
+                
+
+
+            
+
+
         
