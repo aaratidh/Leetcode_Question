@@ -6,28 +6,22 @@
 #         self.right = right
 class Solution:
     def longestZigZag(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
+        self.path = 0
+        def dfs(r, left, curr):
+            if r is None: # zig-Zac
+                return
+            self.path = max(self.path, curr)
+            if left:
+                dfs(r.right, False, curr + 1)
+                dfs(r.left, True, 1)
+            else:
+                dfs(r.right, False, 1)
+                dfs(r.left, True, curr + 1)
 
-        return max(
-            self.helper(root.left, True, 1),
-            self.helper(root.right, False, 1)
-        )
-
-    def helper(self, root, isLeft, depth):
-        if not root:
-            return depth - 1
-
-        if isLeft:
-            return max(
-                self.helper(root.right, False, depth + 1),  # continue zigzag
-                self.helper(root.left, True, 1)              # restart
-            )
-        else:
-            return max(
-                self.helper(root.left, True, depth + 1),     # continue zigzag
-                self.helper(root.right, False, 1)             # restart
-            )
+        dfs(root.right, False, 1)
+        dfs(root.left, True, 1)
+        return self.path
+        
         
  
 
